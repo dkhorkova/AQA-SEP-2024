@@ -1,4 +1,4 @@
-package org.prog;
+package org.prog.inheritance;
 
 public class Truck extends BigCar {
 

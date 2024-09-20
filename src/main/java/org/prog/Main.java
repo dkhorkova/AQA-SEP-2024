@@ -1,55 +1,51 @@
 package org.prog;
 
+import org.prog.inheritance.*;
+import org.prog.poly.BMW;
+import org.prog.poly.Ford;
+import org.prog.poly.ICar;
+import org.prog.poly.Toyota;
+
 public class Main {
 
-    /**
-     * ########################################
-     * ########################################
-     * ########################################
-     * #############car1#######################
-     * ########################################
-     * #############car2#######################
-     * ########################################
-     *
-     * @param args
-     */
     public static void main(String[] args) {
-        Car car1 = new Car();
-        Car car2 = new Car();
-        Car carOfJosh = car1;
-        BigCar bigCar = new BigCar();
-        Truck truck = new Truck();
+//        Ford ford = new Ford();
+//        Toyota toyota = new Toyota();
+//        BMW bmw = new BMW();
+//
+//        ford.honk();
+//
+//        driveCar(ford);
+//        driveCar(toyota);
+//        driveCar(bmw);
 
-        car1.milage = 10;
-        car2.milage = 20;
-        bigCar.color = "purple";
-        truck.color = "green";
+        System.out.println("=======================================");
 
-        bigCar.milage = 30;
-        truck.milage = 100;
+        Car car = new Car();
+//        Truck truck = new Truck();
+//        BigTruck bigTruck = new BigTruck();
+//        RoadTrain roadTrain = new RoadTrain();
+//        BigRoadTrain bigRoadTrain = new BigRoadTrain();
 
-        bigCar.turnLeft();
-        bigCar.dragAnotherCar();
-
-        truck.turnLeft();
-        truck.dragAnotherCar();
-        truck.evacCar();
-
-        paintCar(carOfJosh, "yellow");
-        paintCar(car2, "blue");
+        car.turnLeft();
+//        truck.turnLeft();
+//        bigTruck.turnLeft();
+//        roadTrain.turnLeft();
+//        bigRoadTrain.turnLeft();
 
 
-        System.out.println("car1 - " + car1.color);
-        System.out.println("carOfJosh - " + carOfJosh.color);
-        System.out.println("car2 - " + car2.color);
+
+        car.goTo("Kyiv");
+        car.goTo("Kyiv", "Odessa");
+        car.goTo("Kyiv", "Odessa", "Dnipro");
+        car.goTo("Kyiv", "Odessa", "Dnipro", "My cats");
     }
 
-    public static void paintCar(Car carToPaint, String carNewColor) {
-        System.out.println("Painting car with milage " + carToPaint.milage);
-        carToPaint.color = carNewColor;
-    }
-
-    public static void smth(int i){
-        i = 1000;
+    public static void driveCar(ICar iCar) {
+        iCar.driveForward();
+        iCar.turn("Left");
+        iCar.driveForward();
+        iCar.turn("Right");
+        iCar.driveForward();
     }
 }
