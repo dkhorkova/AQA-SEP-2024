@@ -30,7 +30,11 @@ public class Car {
     public boolean equals(Object o) {
         if (o instanceof Car) {
             Car carToCompare = (Car) o;
-            if (this.color.equals(carToCompare.color)) {
+            if (this.color == null && carToCompare.color == null) {
+                return true;
+            }
+            if (this.color != null &&
+                    this.color.equals(carToCompare.color)) {
                 return true;
             }
             return false;
