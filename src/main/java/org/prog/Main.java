@@ -6,6 +6,8 @@ import org.prog.poly.Ford;
 import org.prog.poly.ICar;
 import org.prog.poly.Toyota;
 
+import java.io.File;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -26,7 +28,6 @@ public class Main {
 //        BigTruck bigTruck = new BigTruck();
 //        RoadTrain roadTrain = new RoadTrain();
 //        BigRoadTrain bigRoadTrain = new BigRoadTrain();
-
         car.turnLeft();
 //        truck.turnLeft();
 //        bigTruck.turnLeft();
