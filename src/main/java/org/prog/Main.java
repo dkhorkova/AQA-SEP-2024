@@ -1,12 +1,7 @@
 package org.prog;
 
 import org.prog.inheritance.*;
-import org.prog.poly.BMW;
-import org.prog.poly.Ford;
 import org.prog.poly.ICar;
-import org.prog.poly.Toyota;
-
-import java.io.File;
 
 public class Main {
 
@@ -23,12 +18,12 @@ public class Main {
 
         System.out.println("=======================================");
 
-        Car car = new Car("a");
+        DemoCar demoCar = new DemoCar("a");
 //        Truck truck = new Truck();
 //        BigTruck bigTruck = new BigTruck();
 //        RoadTrain roadTrain = new RoadTrain();
 //        BigRoadTrain bigRoadTrain = new BigRoadTrain();
-        car.turnLeft();
+        demoCar.turnLeft();
 //        truck.turnLeft();
 //        bigTruck.turnLeft();
 //        roadTrain.turnLeft();
@@ -36,10 +31,10 @@ public class Main {
 
 
 
-        car.goTo("Kyiv");
-        car.goTo("Kyiv", "Odessa");
-        car.goTo("Kyiv", "Odessa", "Dnipro");
-        car.goTo("Kyiv", "Odessa", "Dnipro", "My cats");
+        demoCar.goTo("Kyiv");
+        demoCar.goTo("Kyiv", "Odessa");
+        demoCar.goTo("Kyiv", "Odessa", "Dnipro");
+        demoCar.goTo("Kyiv", "Odessa", "Dnipro", "My cats");
     }
 
     public static void driveCar(ICar iCar) {

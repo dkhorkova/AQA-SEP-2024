@@ -1,6 +1,6 @@
 package org.prog.collections;
 
-import org.prog.inheritance.Car;
+import org.prog.inheritance.DemoCar;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,34 +13,34 @@ import java.util.Set;
 public class MapsHomework {
 
     public static void main(String[] args) {
-        Car coOwnedCar = new Car("red");
+        DemoCar coOwnedDemoCar = new DemoCar("red");
 
         CarOwner john = createOwner("John", "Doe", "+1234567890");
         CarOwner jane = createOwner("Jane", "Doe", "+3216549870");
         CarOwner bob = createOwner("Bob", "Marley", "+65447891230");
 
-        Map<CarOwner, Set<Car>> ownersAndCars = new HashMap<>();
+        Map<CarOwner, Set<DemoCar>> ownersAndCars = new HashMap<>();
         ownersAndCars.put(john, new HashSet<>());
         ownersAndCars.put(jane, new HashSet<>());
         ownersAndCars.put(bob, new HashSet<>());
 
-        ownersAndCars.get(john).add(coOwnedCar);
-        ownersAndCars.get(jane).add(coOwnedCar);
+        ownersAndCars.get(john).add(coOwnedDemoCar);
+        ownersAndCars.get(jane).add(coOwnedDemoCar);
 
-        ownersAndCars.get(john).add(new Car("blue"));
-        ownersAndCars.get(jane).add(new Car("yellow"));
-        ownersAndCars.get(bob).add(new Car("green"));
+        ownersAndCars.get(john).add(new DemoCar("blue"));
+        ownersAndCars.get(jane).add(new DemoCar("yellow"));
+        ownersAndCars.get(bob).add(new DemoCar("green"));
 
         Set<CarOwner> ownersWithSameCars = new HashSet<>();
-        Set<Car> temporaryCars = new HashSet<>();
-        for (Map.Entry<CarOwner, Set<Car>> entry : ownersAndCars.entrySet()) {
-            temporaryCars = entry.getValue();
-            for (Map.Entry<CarOwner, Set<Car>> entrySecondary : ownersAndCars.entrySet()) {
+        Set<DemoCar> temporaryDemoCars = new HashSet<>();
+        for (Map.Entry<CarOwner, Set<DemoCar>> entry : ownersAndCars.entrySet()) {
+            temporaryDemoCars = entry.getValue();
+            for (Map.Entry<CarOwner, Set<DemoCar>> entrySecondary : ownersAndCars.entrySet()) {
                 if (entrySecondary.getKey().equals(entry.getKey())) {
                     System.out.println("skip it");
                 } else {
-                    for (Car car : entrySecondary.getValue()) {
-                        if (temporaryCars.contains(car)) {
+                    for (DemoCar demoCar : entrySecondary.getValue()) {
+                        if (temporaryDemoCars.contains(demoCar)) {
                             ownersWithSameCars.add(entry.getKey());
                             ownersWithSameCars.add(entrySecondary.getKey());
                         }

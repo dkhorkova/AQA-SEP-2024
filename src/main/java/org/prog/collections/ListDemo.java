@@ -1,6 +1,6 @@
 package org.prog.collections;
 
-import org.prog.inheritance.Car;
+import org.prog.inheritance.DemoCar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,30 +40,30 @@ public class ListDemo {
 
     public static void carListDemo() {
         Random random = new Random();
-        List<Car> cars = new ArrayList<>();
-        List<Car> barelyUsedCars = new ArrayList<>();
-        List<Car> heavilyUsedCars = new ArrayList<>();
+        List<DemoCar> demoCars = new ArrayList<>();
+        List<DemoCar> barelyUsedDemoCars = new ArrayList<>();
+        List<DemoCar> heavilyUsedDemoCars = new ArrayList<>();
         for (int i = 0; i < 100; i++) {
-            cars.add(new Car("a"));
+            demoCars.add(new DemoCar("a"));
         }
 
-        for (int i = 0; i < cars.size(); i++) {
-            cars.get(i).color = "black";
-            cars.get(i).milage = random.nextInt(100000);
+        for (int i = 0; i < demoCars.size(); i++) {
+            demoCars.get(i).color = "black";
+            demoCars.get(i).milage = random.nextInt(100000);
             random.nextInt(3);
         }
 
-        for (int i = 0; i < cars.size(); i++) {
-            if (cars.get(i).milage > 50000) {
-                heavilyUsedCars.add(cars.get(i));
+        for (int i = 0; i < demoCars.size(); i++) {
+            if (demoCars.get(i).milage > 50000) {
+                heavilyUsedDemoCars.add(demoCars.get(i));
                 System.out.println("Car index is " + i);
-                System.out.println("A car with big milage! " + cars.get(i).milage);
+                System.out.println("A car with big milage! " + demoCars.get(i).milage);
             } else {
-                barelyUsedCars.add(cars.get(i));
+                barelyUsedDemoCars.add(demoCars.get(i));
             }
         }
 
-        System.out.println("Used cars count: " + heavilyUsedCars.size());
-        System.out.println("Almost new cars count: " + barelyUsedCars.size());
+        System.out.println("Used cars count: " + heavilyUsedDemoCars.size());
+        System.out.println("Almost new cars count: " + barelyUsedDemoCars.size());
     }
 }

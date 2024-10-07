@@ -1,10 +1,10 @@
 package org.prog.inheritance;
 
-public class Car {
+public class DemoCar {
     public String color;
     public int milage;
 
-    public Car(String carColor) {
+    public DemoCar(String carColor) {
         color = carColor;
     }
 
@@ -32,13 +32,13 @@ public class Car {
     //this is car1
     @Override
     public boolean equals(Object o) {
-        if (o instanceof Car) {
-            Car carToCompare = (Car) o;
-            if (this.color == null && carToCompare.color == null) {
+        if (o instanceof DemoCar) {
+            DemoCar demoCarToCompare = (DemoCar) o;
+            if (this.color == null && demoCarToCompare.color == null) {
                 return true;
             }
             if (this.color != null &&
-                    this.color.equals(carToCompare.color)) {
+                    this.color.equals(demoCarToCompare.color)) {
                 return true;
             }
             return false;

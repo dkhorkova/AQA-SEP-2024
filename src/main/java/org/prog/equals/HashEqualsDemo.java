@@ -1,6 +1,6 @@
 package org.prog.equals;
 
-import org.prog.inheritance.Car;
+import org.prog.inheritance.DemoCar;
 
 public class HashEqualsDemo {
 
@@ -15,16 +15,16 @@ public class HashEqualsDemo {
      */
 
     public static void main(String[] args) {
-        Car car1 = new Car("a");
-        Car joshCar = car1;
-        Car car2 = new Car("a");
+        DemoCar demoCar1 = new DemoCar("a");
+        DemoCar joshDemoCar = demoCar1;
+        DemoCar demoCar2 = new DemoCar("a");
 
-        car1.color = "red";
-        car2.color = "red";
+        demoCar1.color = "red";
+        demoCar2.color = "red";
 
 
-        System.out.println(car1.equals(car2));
-        System.out.println(car1 == car2);
-        System.out.println(car1 == joshCar);
+        System.out.println(demoCar1.equals(demoCar2));
+        System.out.println(demoCar1 == demoCar2);
+        System.out.println(demoCar1 == joshDemoCar);
     }
 }
