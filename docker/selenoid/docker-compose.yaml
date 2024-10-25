@@ -1,11 +1,12 @@
 # BEFORE YOU START:
+#  docker pull selenoid/chrome:latest
+#  docker pull selenoid/video-recorder:latest-release
+
 #  docker network ls
 #  docker network create selenoid
 #  docker network inspect [net_id]
 #  docker ps
 #  docker network connect selenoid [containers]
-#  docker pull selenoid/chrome:latest
-#  docker pull selenoid/video-recorder:latest-release
 #  docker-compose up
 version: '3'
 networks:
