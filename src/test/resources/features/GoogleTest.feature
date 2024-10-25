@@ -34,4 +34,4 @@ Feature: My Feature
     Then I can see 3 search results for name "some alias"
     Examples:
       | celebrityName  |
-      | "Nikolas Cage" |
+      | "Nicolas Cage" |
