@@ -3,11 +3,13 @@ Feature: My Feature
   Background: do before each
     Given I print "======================================" 1 times
 
+  @severity=trivial
   Scenario: Some Test Scenario
     Given I print "my test string" 1 times
     When I use different test data "some test data"
     Then I print another test data piece "AAAA"
 
+  @severity=minor
   Scenario Outline: Some Test Scenario
     Given I print "my test string" 1 times
     When I use different test data <test_data>
