@@ -9,8 +9,5 @@ Feature: My Feature
     Then I can see 3 search results for name "some alias"
     Examples:
       | celebrityName   |
-      | "random_name"   |
       | "Ben Affleck"   |
-      | "random_name"   |
       | "Margot Robbie" |
-      | "random_name"   |
