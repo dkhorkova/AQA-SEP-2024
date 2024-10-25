@@ -28,7 +28,6 @@ public class WebDriverFactory {
             default:
                 throw new RuntimeException("No env defined!");
         }
-
     }
 
     private static ChromeOptions remoteChrome() {
