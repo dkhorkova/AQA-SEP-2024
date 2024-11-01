@@ -4,6 +4,7 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 import org.prog.cucumber.steps.WebSteps;
 import org.prog.util.WebDriverFactory;
+import org.prog.web.pages.GooglePage;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
@@ -21,12 +22,12 @@ public class CucumberAllTestRunner extends AbstractTestNGCucumberTests {
 
     @BeforeSuite
     public void setUp() throws MalformedURLException {
-        WebSteps.driver = WebDriverFactory.getDriver();
+        WebSteps.googlePage = new GooglePage(WebDriverFactory.getDriver());
     }
 
     @AfterSuite
     public void tearDown() {
-        WebSteps.driver.quit();
+        WebDriverFactory.quitDriver();
     }
 
 

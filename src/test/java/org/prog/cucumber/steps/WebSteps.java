@@ -10,44 +10,36 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.prog.util.DataHolder;
+import org.prog.web.pages.GooglePage;
 import org.testng.Assert;
 
 import java.time.Duration;
 import java.util.List;
 
 public class WebSteps {
-    public static WebDriver driver;
-
-    private final static String COOKIES_LINK = "//a[contains(@href,'technologies/cookies')]";
-
+    public static GooglePage googlePage;
 
     @Given("Load google page")
     public void loadGooglePage() {
-        driver.get("https://google.com/");
+        googlePage.loadPage();
     }
 
     @Given("Accept Google cookies if present")
     public void acceptCookiesIfPresent() {
-        List<WebElement> cookiesLink = driver.findElements(By.xpath(COOKIES_LINK));
-        if (!cookiesLink.isEmpty()) {
-            driver.findElements(By.tagName("button"))
-                    .get(4)
-                    .click();
+        if (googlePage.isCookiesOnScreen()) {
+            googlePage.cookiesAction("ACCEPT");
         }
     }
 
     @When("I google for {string}")
     public void searchForCelebrity(String alias) {
-        WebElement searchInput = driver.findElement(By.name("q"));
-        searchInput.click();
-        searchInput.sendKeys((String) DataHolder.HOLDER.get(alias));
-        searchInput.sendKeys(Keys.ENTER);
+        googlePage.setSearchValue((String) DataHolder.HOLDER.get(alias));
+        googlePage.executeSearch();
     }
 
     @Then("I can see {int} search results for name {string}")
     public void validateResults(int amount, String alias) {
-        List<WebElement> searchHeaders = new WebDriverWait(driver, Duration.ofSeconds(30L))
-                .until(ExpectedConditions.numberOfElementsToBeMoreThan(By.tagName("h3"), 2));
+        List<WebElement> searchHeaders = googlePage.getSearchHeaders();
 
         int searchResultsCount = 0;
         for (WebElement searchHeader : searchHeaders) {
@@ -57,14 +49,5 @@ public class WebSteps {
         }
 
         Assert.assertTrue(searchResultsCount > amount);
-    }
-
-    private String whichNameToUse(String name) {
-        if ("random_name".equals(name)) {
-            List<String> randomNames = (List<String>) DataHolder.HOLDER.get("random_users");
-            return randomNames.get(0);
-        } else {
-            return name;
-        }
     }
 }
