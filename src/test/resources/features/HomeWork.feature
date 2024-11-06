@@ -9,8 +9,21 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.junit.Assert;
-
 import java.util.List;
+
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/test/resources",  // Path to the feature files
+        glue = {"stepdefs"},              // Package where the step definitions are located
+        plugin = {"pretty", "html:target/cucumber-report.html"} // Optional: for report generation
+)
+public class CucumberTestRunner {
+}
 
   Scenario: Find an iPhone on the allo.ua website
      Given I open the allo.ua website
@@ -59,3 +72,15 @@ searchBox.sendKeys(Xiaomi 14T Pro 12/512Gb Titan Black);
     }
 }
 
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+
+@RunWith(Cucumber.class)
+@CucumberOptions(
+        features = "src/test/resources",  // Path to the feature files
+        glue = {"stepdefs"},              // Package where the step definitions are located
+        plugin = {"pretty", "html:target/cucumber-report.html"} // Optional: for report generation
+)
+public class CucumberTestRunner {
+}
